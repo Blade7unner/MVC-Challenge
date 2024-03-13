@@ -1,4 +1,5 @@
 const sequelize = require('./config/config');
+const models = require('./models'); // This will import your models and the associations
 
 sequelize.sync({ force: false }).then(() => {
   // This code runs once sequelize has established a database connection
