@@ -5,14 +5,16 @@ const sequelize = require('./config/config'); // Sequelize instance
 const routes = require('./routes'); // Your routes
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
+
+// Set up Handlebars as the view engine
+const exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 // Set up session with Sequelize store
 const sess = {
-  secret: 'Super secret secret', // This should be an environment variable in production. Remember to replace the 'Super secret secret' with an environment variable or another secure method of storing secrets when you deploy or share your code.
-
-
+  secret: 'Super secret secret', // This should be an environment variable in production
   cookie: {},
   resave: false,
   saveUninitialized: true,
