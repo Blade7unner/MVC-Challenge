@@ -2,7 +2,7 @@
 
 ## Description
 
-The Tech Blog is a CMS-style blog site where developers can publish articles, blog posts, and their thoughts and opinions about various tech-related topics. Users can sign up, log in, create, edit, and delete their posts, as well as comment on other users' posts. This application follows the MVC (Model-View-Controller) architectural pattern and is built using Node.js, Express.js, Sequelize ORM, MySQL database, Handlebars.js, and bcrypt for password hashing.
+The Tech Blog is a CMS-style blog site where developers can publish articles, blog posts, and their thoughts and opinions about various tech-related topics. Users can sign up, log in, create, edit, and delete their posts, as well as comment on other users' posts. This application follows the MVC (Model-View-Controller) architectural pattern and is built using Node.js, Express.js, Sequelize ORM, MySQL database, Handlebars.js.
 
 ## Table of Contents
 
