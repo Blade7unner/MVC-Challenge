@@ -1,5 +1,11 @@
 require('dotenv').config(); 
 
+console.log("DB Name:", process.env.DB_NAME);
+console.log("DB User:", process.env.DB_USER);
+console.log("DB Password:", process.env.DB_PASSWORD);
+console.log("DB Host:", process.env.DB_HOST);
+console.log("DB Port:", process.env.DB_PORT);
+
 const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -7,16 +13,13 @@ const sequelize = require('./config/config');
 const routes = require('./routes');
 const homeController = require('./controllers/homeController');
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ defaultLayout: 'main' });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
 
 const sess = {
   secret: 'Super secret secret',
@@ -30,19 +33,14 @@ const sess = {
 
 app.use(session(sess));
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use(express.static('public'));
-
 
 app.use(routes);
 
-
 app.get('/', homeController.renderHomePage); 
-
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
